@@ -68,6 +68,9 @@ def Company(df):
         final_list.append(temp_df)
     Company = pd.concat(final_list, ignore_index=True)
     Company['Name'] = Company['Name'].apply(make_name_proper)
+    Company['Town'] = Company['Town'].apply(make_name_proper)
+    Company['County'] = Company['County'].apply(make_name_proper)
+    
     Company = Company[['Id', 'OfficeId', 'Name', 'Address1', 'Address2', 'Address3', 'Address4',
         'Postcode', 'Town', 'County', 'Country', 'PhoneNumber', 'Website',
         'Email', 'OfficeType']]
